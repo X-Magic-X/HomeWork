@@ -35,7 +35,7 @@ public abstract class Animal {
     public int swim(int distance) {
         int newEndurance = calcNewEndurance(distance);
         if (newEndurance < 0) {
-            System.out.println("Не достаточно выносливости");
+            System.out.println(name + "слишком устал");
             isTired = true;
             return -1;
         }
