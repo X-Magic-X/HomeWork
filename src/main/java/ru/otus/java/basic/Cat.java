@@ -18,10 +18,7 @@ public class Cat {
         if (plate.consume(appetite)) {
             isSatiety = true;
             System.out.println(name + " поел");
-        } else {
-            isSatiety = false;
-            System.out.println(name + " недоволен");
-        }
+        } else System.out.println(name + " недоволен");
     }
 
     @Override
