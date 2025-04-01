@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(4);
-        list = listFill(list, 3, 6);
+        List<Integer> list = new ArrayList<>();
+        list = listFill(list, 2, 8);
         System.out.println(list);
         System.out.println(listSum(list));
         listSetter(list, 15);
@@ -26,6 +26,7 @@ public class Main {
     }
 
     public static List listFill(List list, int min, int max) {
+        if (min > max) throw new IllegalArgumentException("Минимальное значение не может быть больше максимального");
         for (int i = min; i <= max; i++)
             list.add(i);
 
@@ -50,7 +51,6 @@ public class Main {
     public static void listPlus(List<Integer> list, int value) {
         for (int i = 0; i < list.size(); i++)
             list.set(i, list.get(i) + value);
-
     }
 
     public static List<String> employeeNames(List<Employee> list) {
@@ -71,6 +71,7 @@ public class Main {
     }
 
     public static boolean employeeMediumAge(List<Employee> list, int age) {
+        if (list.isEmpty()) throw new IllegalArgumentException("Список пуст");
         int MediumAge = 0;
         for (Employee e : list)
             MediumAge += e.getAge();
@@ -82,6 +83,7 @@ public class Main {
     }
 
     public static Employee employeeYoung(List<Employee> list) {
+        if (list.isEmpty()) throw new IllegalArgumentException("Список пуст");
         Employee result = list.get(0);
         for (Employee e : list) {
             if (result.getAge() > e.getAge())
