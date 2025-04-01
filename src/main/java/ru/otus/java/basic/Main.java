@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
-        list = listFill(list, 2, 8);
+        list = listFill(2, 8);
         System.out.println(list);
         System.out.println(listSum(list));
         listSetter(list, 15);
@@ -19,13 +19,14 @@ public class Main {
         eList.add(John);
         eList.add(Jack);
         System.out.println(employeeNames(eList));
-        System.out.println(employeeSort(eList, 45));
+        System.out.println(employeeOldest(eList, 45));
         System.out.println(employeeMediumAge(eList, 47));
         System.out.println(employeeYoung(eList));
 
     }
 
-    public static List listFill(List list, int min, int max) {
+    public static List listFill(int min, int max) {
+        List<Integer> list = new ArrayList<>();
         if (min > max) throw new IllegalArgumentException("Минимальное значение не может быть больше максимального");
         for (int i = min; i <= max; i++)
             list.add(i);
@@ -33,7 +34,7 @@ public class Main {
         return list;
     }
 
-    public static int listSum(List<Integer> list) {
+    public static int listSum(Iterable<Integer> list) {
         int result = 0;
         for (int i : list)
             if (i > 5)
@@ -53,7 +54,7 @@ public class Main {
             list.set(i, list.get(i) + value);
     }
 
-    public static List<String> employeeNames(List<Employee> list) {
+    public static List<String> employeeNames(Iterable<Employee> list) {
         List<String> result = new ArrayList<>();
         for (Employee e : list)
             result.add(e.getName());
@@ -61,7 +62,7 @@ public class Main {
         return result;
     }
 
-    public static List<Employee> employeeSort(List<Employee> list, int age) {
+    public static List<Employee> employeeOldest(Iterable<Employee> list, int age) {
         List<Employee> result = new ArrayList<>();
         for (Employee e : list)
             if (e.getAge() >= age)
@@ -85,10 +86,10 @@ public class Main {
     public static Employee employeeYoung(List<Employee> list) {
         if (list.isEmpty()) throw new IllegalArgumentException("Список пуст");
         Employee result = list.get(0);
-        for (Employee e : list) {
-            if (result.getAge() > e.getAge())
-                result = e;
-        }
+        for (int i = 1; i < list.size(); i++)
+            if (result.getAge() > list.get(i).getAge())
+                result = list.get(i);
+
         return result;
     }
 }
