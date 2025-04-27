@@ -15,7 +15,8 @@ public class Main {
 
         int[] arr = {1, 2, 52, 4, 47, 6, 152, 8};
         ArrayTool.bubbleSort(arr);
-        for (int i : arr)
+        for (int i : arr) {
             System.out.println(i);
+        }
     }
 }

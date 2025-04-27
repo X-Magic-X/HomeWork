@@ -14,9 +14,9 @@ public class PersonDataBase {
     }
 
     void add(Person person) {
-        if (persons.containsKey(person.getId()))
+        if (persons.containsKey(person.getId())) {
             throw new IllegalArgumentException("Person с таким id уже есть в списке");
-
+        }
         persons.put(person.getId(), person);
     }
 
@@ -25,8 +25,9 @@ public class PersonDataBase {
     }
 
     boolean isEmployee(Long id) {
-        if (persons.get(id) == null)
+        if (persons.get(id) == null) {
             throw new IllegalArgumentException("Person с таким id нет в базе");
+        }
         return !isManager(persons.get(id));
     }
 
