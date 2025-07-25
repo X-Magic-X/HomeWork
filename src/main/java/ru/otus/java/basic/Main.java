@@ -11,6 +11,7 @@ public class Main {
         Box<Apple> appleBox2 = new Box<>();
         Box<Orange> orangeBox = new Box<>();
         Box<Fruit> fruitBox = new Box<>();
+        Box<Fruit> fruitBox2 = new Box<>();
         Orange orange = new Orange(5);
         Orange orange1 = new Orange(2);
         Apple apple = new Apple(1);
@@ -23,6 +24,13 @@ public class Main {
         appleBox.transferTo(appleBox2);
         System.out.println(appleBox.weith());
         System.out.println(appleBox2.weith());
+
+
+        fruitBox.transferTo(fruitBox2);
+        orangeBox.transferTo(fruitBox);
+        appleBox.transferTo(fruitBox);
+
+
 
     }
 }

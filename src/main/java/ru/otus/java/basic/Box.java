@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Box<T extends Fruit> {
-    private final List<T> items = new ArrayList<>();
+    private final List<Fruit> items = new ArrayList<>();
 
-    public void insert(T item) {
+    public void insert(Fruit item) {
         items.add(item);
     }
 
     public int weith() {
         int result = 0;
-        for (T i : items) {
+        for (Fruit i : items) {
             result += i.getWeith();
         }
 
@@ -30,14 +30,14 @@ public class Box<T extends Fruit> {
 
     }
 
-    public boolean transferTo(Box<T> box) {
+    public boolean transferTo(Box<? super T> box) {
         if (this == box) {
             return false;
         }
         if (items.isEmpty()) {
             return false;
         }
-        for (T i : items) {
+        for (Fruit i : items) {
             box.insert(i);
         }
         clear();
