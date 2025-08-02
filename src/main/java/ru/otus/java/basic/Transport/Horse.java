@@ -35,7 +35,7 @@ public class Horse implements Transport {
     }
 
     public void eat(int amount) {
-        stamina = Math.min(maxStamina, amount);
+        stamina = Math.min(maxStamina, stamina + amount);
         System.out.println("Лошади поела, теперь её силы составляют " + stamina + "/" + maxStamina);
     }
 
